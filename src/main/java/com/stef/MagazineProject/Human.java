@@ -50,5 +50,5 @@ public abstract class Human {
         return year;
     }
 
-    //public abstract void showInformation();
+
 }

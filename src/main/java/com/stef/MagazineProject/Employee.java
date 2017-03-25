@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 
-public class Employee extends Human {
+public abstract class Employee extends Human {
     private static int nextId = 1;
 
     private int id;
@@ -13,32 +13,15 @@ public class Employee extends Human {
     private double rating;
     private ArrayList<Mark> marks;
 
-    public Employee() {
-        setName("name");
-        setSurname("surname");
-        setBornDate(new GregorianCalendar(1990, 01, 01));
-        setId();
-        salary = 2000;
-        rating = 0;
-        date_of_begin = new GregorianCalendar(2016, 5, 5);
-        marks = new ArrayList<Mark>();
+    public boolean raiseSalary(int x) {
+        if (x > 0) {
+            this.salary += x;
+            return true;
+        }
+        return false;
     }
 
-    public Employee(String name, String surname, int year, int month, int day, double salary) {
-        setName(name);
-        setSurname(surname);
-        setBornDate(new GregorianCalendar(year, month, day));
-        setId();
-        this.salary = salary;
-        date_of_begin = new GregorianCalendar();
-        marks = new ArrayList<Mark>();
-    }
-
-    public void raiseSalary() {
-        this.salary += salary * 0.10;
-    }
-
-    public void getExperience() {
+    public String getExperience() {
         GregorianCalendar curentDate = new GregorianCalendar();
         int year, month, date, hour, minutes;
 
@@ -56,11 +39,11 @@ public class Employee extends Human {
         if (month < 0) {
             month = 0;
         }
-        System.out.println(" year = " + year +
+        return " year = " + year +
                 " month = " + month +
                 " date = " + date +
                 " hour = " + hour +
-                " minutes = " + minutes);
+                " minutes = " + minutes;
     }
 
     public double getSalary() {
@@ -69,6 +52,22 @@ public class Employee extends Human {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public void setDate_of_begin(GregorianCalendar date_of_begin) {
+        this.date_of_begin = date_of_begin;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
+    public ArrayList<Mark> getMarks() {
+        return marks;
+    }
+
+    public void setMarks(ArrayList<Mark> marks) {
+        this.marks = marks;
     }
 
     public double getRating() {
@@ -110,20 +109,5 @@ public class Employee extends Human {
         nextId++;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "name=" + getName() +
-                "surname=" + getSurname() +
-                "id=" + getId() +
-                ", salary=" + salary +
-                ", rating=" + rating +
-                '}';
-    }
-
-    public void setBonus() {
-        salary += salary * 0.1;
-    }
-
-
+    public abstract void setBonus();
 }

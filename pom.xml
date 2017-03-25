@@ -47,7 +47,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>com.Shvch.App</mainClass>
+              <mainClass>com.stef.MagazineProject.Menu</mainClass>
             </manifest>
           </archive>
         </configuration>
