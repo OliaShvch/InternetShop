@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 
-public abstract class Employee extends Human {
+public class Employee extends Human {
     private static int nextId = 1;
 
     private int id;
@@ -21,19 +21,41 @@ public abstract class Employee extends Human {
         return false;
     }
 
+    public Employee() {
+        setName("name");
+        setSurname("surname");
+        setBornDate(new GregorianCalendar(1990, 01, 01));
+        setId();
+        setSalary(2000);
+        setRating(0);
+        setDate_of_begin(new GregorianCalendar(2016, 5, 5));
+        setMarks(new ArrayList<Mark>());
+    }
+
+    public Employee(String name, String surname, int year, int month, int day, double salary) {
+        setName(name);
+        setSurname(surname);
+        setBornDate(new GregorianCalendar(year, month, day));
+        setId();
+        setSalary(salary);
+        setRating(0);
+        setDate_of_begin(new GregorianCalendar(2016, 5, 5));
+        setMarks(new ArrayList<Mark>());
+    }
+
     public String getExperience() {
-        GregorianCalendar curentDate = new GregorianCalendar();
+        GregorianCalendar currentDate = new GregorianCalendar();
         int year, month, date, hour, minutes;
 
-        year = curentDate.get(GregorianCalendar.YEAR)
+        year = currentDate.get(GregorianCalendar.YEAR)
                 - date_of_begin.get(GregorianCalendar.YEAR);
-        month = curentDate.get(GregorianCalendar.MONTH)
+        month = currentDate.get(GregorianCalendar.MONTH)
                 - date_of_begin.get(GregorianCalendar.MONTH);
-        date = curentDate.get(GregorianCalendar.DATE)
+        date = currentDate.get(GregorianCalendar.DATE)
                 - date_of_begin.get(GregorianCalendar.DATE);
-        hour = curentDate.get(GregorianCalendar.HOUR)
+        hour = currentDate.get(GregorianCalendar.HOUR)
                 - date_of_begin.get(GregorianCalendar.HOUR);
-        minutes = curentDate.get(GregorianCalendar.MINUTE)
+        minutes = currentDate.get(GregorianCalendar.MINUTE)
                 - date_of_begin.get(GregorianCalendar.MINUTE);
 
         if (month < 0) {
@@ -109,5 +131,7 @@ public abstract class Employee extends Human {
         nextId++;
     }
 
-    public abstract void setBonus();
+    public void setBonus(){
+        setSalary(getSalary() * 1.20);
+    }
 }
