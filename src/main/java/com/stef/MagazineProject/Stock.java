@@ -25,9 +25,7 @@ public class Stock {
         }
     }
 
-
     public static void addProduct() {
-
         Scanner in = new Scanner(System.in);
         String name = "";
         String description = "";
@@ -51,7 +49,6 @@ public class Stock {
             System.out.print("1-YES / 0-NO :");
             repeat = in.nextInt();
         } while (repeat != 0);
-        saveProductToFile();
     }
 
 
@@ -73,50 +70,13 @@ public class Stock {
         return goods.get(inputID);
     }
 
-
-    public static void saveProductToFile() {
-
-        try {
-
-            FileOutputStream file = new FileOutputStream("product_catalog.ser");
-            ObjectOutputStream obj = new ObjectOutputStream(file);
-            obj.writeObject(goods);
-            file.close();
-            obj.close();
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    public static void loadProductFromFIle() {
-
-        try {
-
-            FileInputStream file = new FileInputStream("product_catalog.ser");
-            ObjectInputStream obj = new ObjectInputStream(file);
-            goods = (ArrayList<Product>) obj.readObject();
-            file.close();
-            obj.close();
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
-        } catch (IOException e) {
-
-        } catch (ClassNotFoundException e) {
-        }
-
-        int oldMaxID = 0;
+        /*int oldMaxID = 0;
 
         for (Product product : goods) {
             if (product.getId() > oldMaxID) {
                 oldMaxID = product.getId();
             }
         }
-
-        Product.setNextId(oldMaxID + 1);
-    }
-
+        Product.setNextId(oldMaxID + 1);*/
 }
 

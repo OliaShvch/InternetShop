@@ -12,7 +12,7 @@ public class Product {
     private String description;
     private double price;
     private String vendor;
-    private GregorianCalendar expDate;
+    private GregorianCalendar expirationDate;
     private int warrantyMonth; //garantia
 
 
@@ -23,7 +23,7 @@ public class Product {
         this.description=description;
         this.price = price;
         this.vendor = vendor;
-        this.expDate = null;
+        this.expirationDate = null;
         this.warrantyMonth = warranty;
 
     }
@@ -34,7 +34,7 @@ public class Product {
         this.description = "none";
         this.price = 0.0;
         this.vendor = "none";
-        this.expDate = null;
+        this.expirationDate = null;
         this.warrantyMonth = 0;
     }
 
@@ -85,7 +85,7 @@ public class Product {
     }
 
     public void showExpDate() {
-        System.out.println("Exp date is :" + expDate.getTime());
+        System.out.println("Exp date is :" + expirationDate.getTime());
     }
 
     public int getWarrantyMonth() {
@@ -98,7 +98,7 @@ public class Product {
 
     public void setExpDate() {
         GregorianCalendar currentDate = new GregorianCalendar();
-        expDate = new GregorianCalendar(currentDate.get(GregorianCalendar.YEAR)+warrantyMonth/12,
+        expirationDate = new GregorianCalendar(currentDate.get(GregorianCalendar.YEAR)+warrantyMonth/12,
                 currentDate.get(GregorianCalendar.MONTH)+warrantyMonth%12,
                 currentDate.get(GregorianCalendar.DATE));
 

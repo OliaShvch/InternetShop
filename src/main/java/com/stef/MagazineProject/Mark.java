@@ -1,8 +1,9 @@
 package com.stef.MagazineProject;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
-public class Mark {
+public class Mark implements Serializable {
     private double mark;
     private GregorianCalendar time;
 

@@ -48,44 +48,5 @@ import java.util.Scanner;
             log.info(sale.toString());
 
         }
-
-
-        public static void saveSaleToFile() {
-
-            try {
-
-                FileOutputStream files = new FileOutputStream("sale_catalog.ser");
-                ObjectOutputStream object = new ObjectOutputStream(files);
-                object.writeObject(sales);
-                files.close();
-                object.close();
-            } catch (FileNotFoundException e) {
-                System.out.println(e.getMessage());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-
-        public static void loadSaleFromFIle() {
-
-            try {
-
-                FileInputStream files = new FileInputStream("sale_catalog.ser");
-                ObjectInputStream object = new ObjectInputStream(files);
-                sales = (ArrayList<Sale>) object.readObject();
-                files.close();
-                object.close();
-            } catch (FileNotFoundException e) {
-                System.out.println(e.getMessage());
-            } catch (IOException e) {
-
-            } catch (ClassNotFoundException e) {
-
-            }
-
-        }
-
-
     }
 
