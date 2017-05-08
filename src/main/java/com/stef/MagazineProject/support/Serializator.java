@@ -1,4 +1,4 @@
-package com.stef.MagazineProject;
+package com.stef.MagazineProject.support;
 
 import org.apache.log4j.Logger;
 import java.io.*;

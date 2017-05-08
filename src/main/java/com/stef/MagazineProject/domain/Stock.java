@@ -1,8 +1,8 @@
-package com.stef.MagazineProject;
+package com.stef.MagazineProject.domain;
 
 
 import org.apache.log4j.Logger;
-import java.io.*;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

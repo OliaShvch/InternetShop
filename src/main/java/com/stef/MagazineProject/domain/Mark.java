@@ -1,4 +1,4 @@
-package com.stef.MagazineProject;
+package com.stef.MagazineProject.domain;
 
 import java.io.Serializable;
 import java.util.GregorianCalendar;
